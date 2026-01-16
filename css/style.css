@@ -467,6 +467,18 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 15px 40px rgba(201, 173, 167, 0.4);
 }
 
+.view-360-btn.coming-soon {
+    background: linear-gradient(135deg, #2D12FA 0%, #1a0a7a 100%);
+    color: #FFFFFF;
+    cursor: not-allowed;
+    box-shadow: 0 10px 30px rgba(45, 18, 250, 0.3);
+}
+
+.view-360-btn.coming-soon:hover {
+    transform: none;
+    box-shadow: 0 10px 30px rgba(45, 18, 250, 0.3);
+}
+
 .project-visual {
     display: flex;
     align-items: center;
@@ -1214,6 +1226,18 @@ h1, h2, h3, h4, h5, h6 {
 .view-360-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(201, 173, 167, 0.4);
+}
+
+.view-360-btn.coming-soon {
+    background: linear-gradient(135deg, #2D12FA 0%, #1a0a7a 100%);
+    color: #FFFFFF;
+    cursor: not-allowed;
+    box-shadow: 0 10px 30px rgba(45, 18, 250, 0.3);
+}
+
+.view-360-btn.coming-soon:hover {
+    transform: none;
+    box-shadow: 0 10px 30px rgba(45, 18, 250, 0.3);
 }
 
 .project-visual {
