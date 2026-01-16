@@ -289,7 +289,7 @@ function open360Viewer(projectType) {
     // 360° image mapping
     const images360 = {
         'museum': '360-images/museum-360.jpg',
-        'mall': '360-images/mall-360.jpg',
+        'mall': 'assets/morphea-360.png',
         'personal': '360-images/interior-360.jpg'
     };
 
