@@ -549,54 +549,59 @@ h1, h2, h3, h4, h5, h6 {
 /* Project Navigation - Updated to remove dots and make labels clickable */
 .project-navigation {
     position: fixed;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
 }
 
 .nav-dots {
-    display: none; /* Hide the dots */
+    display: none !important;
 }
 
 .nav-labels {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-label {
-    font-size: 0.75rem;
-    color: rgba(242, 233, 228, 0.6);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
     transition: all 0.3s ease;
-    cursor: url('../assets/paintbrush-cursor.png') 16 16, pointer;
-    padding: 6px 12px;
-    border-radius: 16px;
-    background: rgba(201, 173, 167, 0.1);
-    border: 1px solid rgba(201, 173, 167, 0.2);
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(45, 18, 250, 0.1);
+    border: 1px solid rgba(45, 18, 250, 0.3);
     backdrop-filter: blur(10px);
     text-align: center;
-    min-width: 65px;
+    white-space: nowrap;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .nav-label.active {
-    color: #F2E9E4;
+    color: #FFFFFF;
     font-weight: 600;
-    background: rgba(201, 173, 167, 0.3);
-    border-color: #C9ADA7;
-    transform: translateX(-10px);
+    background: rgba(45, 18, 250, 0.3);
+    border-color: #2D12FA;
+    transform: scale(1.05);
 }
 
 .nav-label:hover {
-    color: #F2E9E4;
-    background: rgba(201, 173, 167, 0.2);
-    border-color: rgba(201, 173, 167, 0.4);
-    transform: translateX(-5px);
+    color: #FFFFFF;
+    background: rgba(45, 18, 250, 0.2);
+    border-color: rgba(45, 18, 250, 0.5);
+    transform: scale(1.02);
 }
 
 /* 360° Viewer Modal */
