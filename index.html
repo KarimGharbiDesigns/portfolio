@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karim Gharbi | 3D Environment Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Intro Animation -->
+    <div id="intro-animation" class="intro-overlay">
+        <div class="intro-video-background">
+            <div class="video-slideshow">
+                <div class="video-slide active" style="background-image: url('assets/WfRYkHGhsIW6.jpeg');"></div>
+                <div class="video-slide" style="background-image: url('assets/QCagHcYHYfoI.jpg');"></div>
+                <div class="video-slide" style="background-image: url('assets/wgkodTBHKNWB.jpg');"></div>
+            </div>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="intro-content">
+            <div class="intro-logo">
+                <img src="assets/logo-original.png" alt="Karim Gharbi Logo" class="intro-logo-img">
+            </div>
+            <div class="intro-title">
+                <span class="intro-name">Karim Gharbi</span>
+                <span class="intro-subtitle">3D Environment Designer</span>
+            </div>
+            <div class="intro-tagline">
+                <span class="tagline-text">Creating Immersive Experiences with UE5</span>
+            </div>
+            <div class="intro-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="#home">
+                <img src="assets/logo-original.png" alt="Karim Gharbi Logo" class="nav-brand-logo">
+            </a>
+        </div>
+        <div class="nav-menu">
+            <a href="#home" class="nav-link">WHAT I DO?</a>
+            <a href="#about" class="nav-link">ABOUT ME</a>
+            <a href="#contact" class="nav-link">PROJECTS</a>
+            <a href="#contact" class="nav-link">BLOG</a>
+            <a href="#contact" class="nav-link">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Project Slides -->
+        <section class="project-slide active" id="slide-0" data-project="home">
+            <div class="slide-background">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="project-info">
+                    <h1 class="project-title">Karim Gharbi</h1>
+                    <p class="project-subtitle">3D Environment Designer</p>
+                    <p class="project-description">Creating Immersive Experiences with UE5</p>
+                    <div class="project-meta">
+                        <span class="meta-item">Scroll to explore projects</span>
+                    </div>
+                </div>
+                <div class="project-visual">
+                    <div class="visual-placeholder">
+                        <div class="logo-display">KG</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-slide" id="slide-1" data-project="museum">
+            <div class="slide-background">
+                <img src="assets/museum-reference.jpg" alt="Museum Background">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="project-info">
+                    <h2 class="project-title">Interactive Museum Experience</h2>
+                    <p class="project-subtitle">Cultural Heritage Foundation</p>
+                    <p class="project-description">Immersive 3D museum environment designed in Unreal Engine 5 to create an engaging educational experience. Features realistic lighting, interactive exhibits, and detailed architectural elements.</p>
+                    <div class="project-meta">
+                        <span class="meta-item">2024</span>
+                        <span class="meta-item">Tunisia</span>
+                        <span class="meta-item">UE5</span>
+                    </div>
+                    <button class="view-360-btn" data-project="museum">View 360° Experience</button>
+                </div>
+                <div class="project-visual">
+                    <div class="project-thumbnail">
+                        <img src="assets/museum-reference.jpg" alt="Museum Project">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-slide" id="slide-2" data-project="mall">
+            <div class="slide-background">
+                <img src="assets/mall-reference.jpg" alt="Mall Background">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="project-info">
+                    <h2 class="project-title">Modern Village Mall Environment</h2>
+                    <p class="project-subtitle">Retail Development Group</p>
+                    <p class="project-description">Comprehensive 3D mall environment featuring detailed architectural elements, realistic materials, and dynamic lighting systems to showcase retail spaces in an immersive virtual setting.</p>
+                    <div class="project-meta">
+                        <span class="meta-item">2024</span>
+                        <span class="meta-item">Tunisia</span>
+                        <span class="meta-item">UE5</span>
+                    </div>
+                    <button class="view-360-btn" data-project="mall">View 360° Experience</button>
+                </div>
+                <div class="project-visual">
+                    <div class="project-thumbnail">
+                        <img src="assets/mall-reference.jpg" alt="Mall Project">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-slide" id="slide-3" data-project="personal">
+            <div class="slide-background">
+                <img src="assets/360-reference.jpg" alt="Personal Project Background">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="project-info">
+                    <h2 class="project-title">Architectural Visualization</h2>
+                    <p class="project-subtitle">Personal Project</p>
+                    <p class="project-description">Personal exploration of advanced lighting techniques and material systems in Unreal Engine 5. Pushing the boundaries of photorealistic rendering and architectural visualization.</p>
+                    <div class="project-meta">
+                        <span class="meta-item">In Progress</span>
+                        <span class="meta-item">Tunisia</span>
+                        <span class="meta-item">UE5</span>
+                    </div>
+                    <button class="view-360-btn" data-project="personal">View 360° Experience</button>
+                </div>
+                <div class="project-visual">
+                    <div class="project-thumbnail">
+                        <img src="assets/360-reference.jpg" alt="Personal Project">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-slide" id="slide-4" data-project="about">
+            <div class="slide-background">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="project-info">
+                    <h2 class="project-title">About Me</h2>
+                    <p class="project-subtitle">3D Environment Designer</p>
+                    <p class="project-description">As a passionate 3D Environment Designer, I specialize in creating immersive virtual experiences using Unreal Engine 5. My work focuses on bringing architectural and environmental concepts to life through detailed 3D modeling, realistic lighting, and interactive design elements.</p>
+                    <div class="skills-grid">
+                        <span class="skill-item">Unreal Engine 5</span>
+                        <span class="skill-item">3D Environment Design</span>
+                        <span class="skill-item">Architectural Visualization</span>
+                        <span class="skill-item">Interactive Experiences</span>
+                        <span class="skill-item">360° Virtual Tours</span>
+                        <span class="skill-item">Lighting & Materials</span>
+                    </div>
+                </div>
+                <div class="project-visual">
+                    <div class="contact-info">
+                        <h3>Let's Work Together</h3>
+                        <a href="mailto:karimgharbi217@gmail.com" class="contact-email">karimgharbi217@gmail.com</a>
+                        <p class="social-note">Professional social media links coming soon</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Project Navigation -->
+    <div class="project-navigation">
+        <div class="nav-dots">
+            <button class="nav-dot active" data-slide="0"></button>
+            <button class="nav-dot" data-slide="1"></button>
+            <button class="nav-dot" data-slide="2"></button>
+            <button class="nav-dot" data-slide="3"></button>
+            <button class="nav-dot" data-slide="4"></button>
+        </div>
+        <div class="nav-labels">
+            <span class="nav-label active">Home</span>
+            <span class="nav-label">Museum</span>
+            <span class="nav-label">Mall</span>
+            <span class="nav-label">Personal</span>
+            <span class="nav-label">About</span>
+        </div>
+    </div>
+
+    <!-- 360° Viewer Modal -->
+    <div class="viewer-360-modal">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title">360° Experience</h3>
+                <p class="modal-subtitle">Drag to explore • Scroll to zoom</p>
+            </div>
+            <div class="viewer-360-container" id="viewer-360">
+                <!-- 360° viewer will be initialized here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js for 360° viewer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/advanced-360-viewer.js"></script>
+    <script src="js/360-viewer.js"></script>
+    <script src="js/script-fixed.js"></script>
+</body>
+</html>
+
