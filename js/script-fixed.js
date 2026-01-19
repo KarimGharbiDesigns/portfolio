@@ -482,8 +482,13 @@ window.prevSlide = prevSlide;
 
 // Gallery functionality
 function openGallery(projectType) {
+    console.log('openGallery called with projectType:', projectType);
     const gallery = document.getElementById(`${projectType}-gallery`);
-    if (!gallery) return;
+    console.log('Gallery element found:', gallery);
+    if (!gallery) {
+        console.error('Gallery not found for project:', projectType);
+        return;
+    }
     
     // Toggle gallery visibility
     const isHidden = gallery.style.display === 'none' || gallery.style.display === '';
