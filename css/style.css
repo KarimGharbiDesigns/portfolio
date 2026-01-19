@@ -2302,3 +2302,31 @@ body.loaded .intro-overlay {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(45, 18, 250, 0.4);
 }
+
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #2D12FA 0%, #1a0a7a 100%);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(45, 18, 250, 0.2);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(45, 18, 250, 0.4);
+}

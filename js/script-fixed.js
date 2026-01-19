@@ -486,21 +486,23 @@ function openGallery(projectType) {
     if (!gallery) return;
     
     // Toggle gallery visibility
-    if (gallery.style.display === 'none') {
+    const isHidden = gallery.style.display === 'none' || gallery.style.display === '';
+    if (isHidden) {
         gallery.style.display = 'block';
         gallery.style.animation = 'slideDown 0.3s ease';
+        
+        // Add gallery item click handlers
+        const galleryItems = gallery.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const imagePath = this.dataset.image;
+                openGalleryModal(imagePath);
+            });
+        });
     } else {
         gallery.style.display = 'none';
     }
-    
-    // Add gallery item click handlers
-    const galleryItems = gallery.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const imagePath = this.dataset.image;
-            openGalleryModal(imagePath);
-        });
-    });
 }
 
 function openGalleryModal(imagePath) {
