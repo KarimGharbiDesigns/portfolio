@@ -2173,6 +2173,11 @@ body.loaded .intro-overlay {
     background: rgba(0, 0, 0, 0.3);
     margin-top: 30px;
     border-radius: 15px;
+    position: relative;
+    z-index: 10;
+    max-height: 1000px;
+    overflow-y: auto;
+    animation: slideDown 0.3s ease !important;
 }
 
 .gallery-grid {
