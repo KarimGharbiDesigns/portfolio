@@ -137,6 +137,15 @@ function initProjectSlides() {
             open360Viewer(projectType);
         });
     });
+
+    // Gallery buttons
+    const viewGalleryButtons = document.querySelectorAll('.view-gallery-btn');
+    viewGalleryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const projectType = this.dataset.project;
+            openGallery(projectType);
+        });
+    });
 }
 
 // Scroll navigation
@@ -469,3 +478,89 @@ window.goToSlide = goToSlide;
 window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
 
+
+
+// Gallery functionality
+function openGallery(projectType) {
+    const gallery = document.getElementById(`${projectType}-gallery`);
+    if (!gallery) return;
+    
+    // Toggle gallery visibility
+    if (gallery.style.display === 'none') {
+        gallery.style.display = 'block';
+        gallery.style.animation = 'slideDown 0.3s ease';
+    } else {
+        gallery.style.display = 'none';
+    }
+    
+    // Add gallery item click handlers
+    const galleryItems = gallery.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const imagePath = this.dataset.image;
+            openGalleryModal(imagePath);
+        });
+    });
+}
+
+function openGalleryModal(imagePath) {
+    // Create modal if it doesn't exist
+    let modal = document.querySelector('.gallery-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.className = 'gallery-modal';
+        modal.innerHTML = `
+            <div class="gallery-modal-content">
+                <button class="gallery-modal-close">&times;</button>
+                <img class="gallery-modal-image" src="" alt="Gallery Image">
+            </div>
+        `;
+        document.body.appendChild(modal);
+        
+        // Close button handler
+        modal.querySelector('.gallery-modal-close').addEventListener('click', closeGalleryModal);
+        
+        // Click outside to close
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeGalleryModal();
+            }
+        });
+        
+        // Keyboard close
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeGalleryModal();
+            }
+        });
+    }
+    
+    // Set image and show modal
+    modal.querySelector('.gallery-modal-image').src = imagePath;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeGalleryModal() {
+    const modal = document.querySelector('.gallery-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Add slide animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+`;
+document.head.appendChild(style);
