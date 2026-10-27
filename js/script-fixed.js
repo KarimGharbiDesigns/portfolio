@@ -5,6 +5,7 @@ let currentSlide = 0;
 let totalSlides = 6;
 let isScrolling = false;
 let scrollTimeout;
+let slideTransitionTimeout;
 let introComplete = false;
 
 // Initialize when DOM is loaded
@@ -21,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
         initScrollNavigation();
         init360Viewer();
         
-        // Set initial slide
-        goToSlide(0);
+        // Keep a deep-linked slide selected instead of resetting it to Home.
+        if (!window.location.hash) goToSlide(0);
     }, 7500); // Wait for intro to complete (extended timing)
 });
 
@@ -214,12 +215,14 @@ function handleScroll(e) {
 
 // Slide navigation functions
 function nextSlide() {
+    totalSlides = document.querySelectorAll('.project-slide').length;
     if (currentSlide < totalSlides - 1) {
         goToSlide(currentSlide + 1);
     }
 }
 
 function prevSlide() {
+    totalSlides = document.querySelectorAll('.project-slide').length;
     if (currentSlide > 0) {
         goToSlide(currentSlide - 1);
     }
@@ -230,7 +233,7 @@ function goToSlide(slideIndex) {
 
     const slides = document.querySelectorAll('.project-slide');
     totalSlides = slides.length;
-    if (isScrolling || slideIndex === currentSlide || slideIndex < 0 || slideIndex >= totalSlides) {
+    if (slideIndex === currentSlide || slideIndex < 0 || slideIndex >= totalSlides) {
         return;
     }
     
@@ -257,7 +260,8 @@ function goToSlide(slideIndex) {
     }
     
     // Reset scrolling flag after animation
-    setTimeout(() => {
+    clearTimeout(slideTransitionTimeout);
+    slideTransitionTimeout = setTimeout(() => {
         isScrolling = false;
     }, 800);
     
