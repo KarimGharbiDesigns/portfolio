@@ -2,7 +2,7 @@
 
 // Global variables
 let currentSlide = 0;
-let totalSlides = 5;
+let totalSlides = 6;
 let isScrolling = false;
 let scrollTimeout;
 let introComplete = false;
@@ -103,8 +103,8 @@ function initNavigation() {
             
             // Navigate to corresponding slide
             let targetSlide = 0;
-            if (link.getAttribute('href') === '#about') targetSlide = 4;
-            else if (link.getAttribute('href') === '#contact') targetSlide = 4;
+            if (link.getAttribute('href') === '#about') targetSlide = 5;
+            else if (link.getAttribute('href') === '#contact') targetSlide = 5;
             
             goToSlide(targetSlide);
         });
@@ -119,6 +119,7 @@ function initNavigation() {
 
 // Project slides functionality
 function initProjectSlides() {
+    totalSlides = document.querySelectorAll('.project-slide').length;
     const navLabels = document.querySelectorAll('.nav-label');
 
     // Navigation labels click handlers
@@ -144,6 +145,12 @@ function initProjectSlides() {
         button.addEventListener('click', function() {
             const projectType = this.dataset.project;
             openGallery(projectType);
+        });
+    });
+
+    document.querySelectorAll('.gallery-close').forEach(button => {
+        button.addEventListener('click', function() {
+            closeGallery(this.closest('.image-gallery'));
         });
     });
 }
@@ -220,7 +227,9 @@ function prevSlide() {
 
 function goToSlide(slideIndex) {
     console.log('goToSlide called with index:', slideIndex);
-    
+
+    const slides = document.querySelectorAll('.project-slide');
+    totalSlides = slides.length;
     if (isScrolling || slideIndex === currentSlide || slideIndex < 0 || slideIndex >= totalSlides) {
         return;
     }
@@ -231,7 +240,6 @@ function goToSlide(slideIndex) {
     currentSlide = slideIndex;
     
     // Update slides
-    const slides = document.querySelectorAll('.project-slide');
     const navLabels = document.querySelectorAll('.nav-label');
     
     console.log('Found slides:', slides.length, 'Found labels:', navLabels.length);
@@ -405,8 +413,11 @@ window.addEventListener('load', function() {
         case 'personal':
             initialSlide = 3;
             break;
-        case 'about':
+        case 'internship-game':
             initialSlide = 4;
+            break;
+        case 'about':
+            initialSlide = 5;
             break;
         default:
             initialSlide = 0;
@@ -437,8 +448,11 @@ window.addEventListener('popstate', function(e) {
         case 'personal':
             targetSlide = 3;
             break;
-        case 'about':
+        case 'internship-game':
             targetSlide = 4;
+            break;
+        case 'about':
+            targetSlide = 5;
             break;
         default:
             targetSlide = 0;
@@ -491,10 +505,14 @@ function openGallery(projectType) {
     }
     
     // Toggle gallery visibility
-    const isHidden = gallery.style.display === 'none' || gallery.style.display === '';
+    const isHidden = gallery.hidden;
     if (isHidden) {
+        gallery.hidden = false;
         gallery.style.display = 'block';
         gallery.style.animation = 'slideDown 0.3s ease';
+        const trigger = document.querySelector(`.view-gallery-btn[data-project="${projectType}"]`);
+        if (trigger) trigger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
         
         // Add gallery item click handlers
         const galleryItems = gallery.querySelectorAll('.gallery-item');
@@ -506,8 +524,18 @@ function openGallery(projectType) {
             });
         });
     } else {
-        gallery.style.display = 'none';
+        closeGallery(gallery);
     }
+}
+
+function closeGallery(gallery) {
+    if (!gallery) return;
+    gallery.hidden = true;
+    gallery.style.display = 'none';
+    const projectType = gallery.id.replace('-gallery', '');
+    const trigger = document.querySelector(`.view-gallery-btn[data-project="${projectType}"]`);
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = 'hidden';
 }
 
 function openGalleryModal(imagePath) {
@@ -552,7 +580,7 @@ function closeGalleryModal() {
     const modal = document.querySelector('.gallery-modal');
     if (modal) {
         modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = 'hidden';
     }
 }
 

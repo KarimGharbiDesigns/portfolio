@@ -95,13 +95,14 @@ The logo is made of SVG elements:
 
 ## 🎬 Project Sections
 
-The website has 5 main slides:
+The website has 6 main slides:
 
 1. **Home** - Landing page with your name and intro
 2. **Museum** - Interactive Museum Experience project
 3. **Mall** - Modern Village Mall Environment project
 4. **Personal** - Architectural Visualization project
-5. **About** - About section
+5. **Internship** - Six-month game development internship and gallery
+6. **About** - About section
 
 ---
 
