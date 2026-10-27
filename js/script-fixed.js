@@ -15,16 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start intro animation
     startIntroAnimation();
     
-    // Initialize other functionality after intro
-    setTimeout(() => {
-        initNavigation();
-        initProjectSlides();
-        initScrollNavigation();
-        init360Viewer();
-        
-        // Keep a deep-linked slide selected instead of resetting it to Home.
-        if (!window.location.hash) goToSlide(0);
-    }, 7500); // Wait for intro to complete (extended timing)
+    // Initialize navigation immediately so the sidebar and wheel controls are
+    // available even while the decorative intro animation is still running.
+    initNavigation();
+    initProjectSlides();
+    initScrollNavigation();
+    init360Viewer();
+
+    // Keep a deep-linked slide selected instead of resetting it to Home.
+    if (!window.location.hash) goToSlide(0);
 });
 
 // Intro Animation
@@ -201,7 +200,7 @@ function handleTouchMove(e) {
 function handleScroll(e) {
     e.preventDefault();
     
-    if (isScrolling || !introComplete) return;
+    if (isScrolling) return;
     
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
